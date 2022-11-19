@@ -1,0 +1,291 @@
+@import "./abstracts/variable";
+@import "./mixins/breakpoint";
+@import "./abstracts/common";
+
+.App {
+    width: 100%;
+    .header {
+        z-index: 1;
+        box-shadow: 5px 5px 5px 2px $shadow;
+        .cart-icon {
+            .cart-badge {
+                transform: translate(50%, -160%);
+                background: $red;
+                width: 23px;
+                height: 23px;
+                font-size: 10px;
+                border-radius: 50%;
+            }
+        }
+        .fa-cart-shopping {
+            color: $bright-greek;
+            font-size: 22px;
+        }
+        h3 {
+            font-size: 20px;
+            font-family: 'Inspiration', cursive;
+            font-weight: 600;
+            @include min-width-lg {
+                font-size: 26px;
+            }
+        }
+        .fa-bag-shopping {
+            font-size: 22px;
+        }
+    }
+    .banner {
+        width: 100%;
+        height: 300px;
+        background-color: $child-of-light;
+        @include min-width-md {
+            height: 400px;
+        }
+        @include min-width-lg {
+            height: 100vh;
+        }
+        .banner-box1 {
+            width: 30%;
+            height: 100%;
+            background-color: $bright-greek;
+        }
+        .banner-content {
+            @include min-width-lg {
+                position: absolute;
+                left: 15%;
+            }
+            div {
+                padding-left: 25px;
+                letter-spacing: 2px;
+                padding-block: 30px;
+                @include min-width-md {
+                    letter-spacing: 3px;
+                }
+                @include min-width-lg {
+                    padding-top: 40px;
+                    letter-spacing: 4px;
+                }
+                p {
+                    font-size: 14px;
+                    padding-block: 10px;
+                    @include min-width-md {
+                        padding-top: 30px;
+                        font-size: 19px;
+                    }
+                }
+                h1 {
+                    font-size: 25px;
+                    font-weight: 600;
+                    padding-block: 5px;
+                    @include min-width-md {
+                        font-size: 40px;
+                        padding-block: 15px;
+                        letter-spacing: 4px;
+                    }
+                }
+                .para {
+                    font-size: 13px;
+                    padding-block: 10px;
+                    @include min-width-md {
+                        width: 90%;
+                        line-height: 28px;
+                        font-size: 16px;
+                    }
+                }
+                button {
+                    font-size: 13px;
+                    margin-top: 20px;
+                    @include min-width-md {
+                        margin-top: 30px;
+                        font-size: 17px;
+                    }
+                }
+            }
+            .banner-img {
+                padding-left: 25px;
+                padding-right: 25px;
+                border-radius: 20px;
+                img {
+                    width: 250px;
+                    height: 400px;
+                }
+            }
+        }
+    }
+    .cart {
+        width: 80%;
+        min-height: 100%;
+        top: 55px;
+        background-color: $bleached-silk;
+        @include min-width-sm {
+            width: 70%;
+        }
+        @include min-width-md {
+            width: 50%;
+        }
+        @include min-width-lg {
+            width: 40%;
+            top: 63px;
+        }
+        @include min-width-xl {
+            width: 30%;
+        }
+        i {
+            font-size: 18px;
+        }
+        .cart-list {
+            max-height: 60vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            .add-Cart {
+                p, i {
+                    font-size: 14px;
+                }
+                .image {
+                    width: 100%;
+                    img {
+                        width: 50px;
+                    }
+                }
+                .quantity {
+                    input {
+                        width: 40px;
+                        font-size: 12px;
+                        @include min-width-sm {
+                            font-size: 14px;
+                        }
+                    }
+                    i {
+                        width: 25px;
+                        height: 25px;
+                        background-color: $green;
+                        border-radius: 50%;
+                        font-size: 10px;
+                        @include min-width-sm {
+                            width: 30px;
+                            height: 30px;
+                            font-size: 12px;
+                        }
+                    }
+                    .fa-minus {
+                        background-color: $red;
+                    }
+                }
+            }
+        }
+    }
+    .product-title {
+        margin-top: 60px;
+        @include min-width-md {
+            margin-top: 70px;
+        }
+        @include min-width-lg {
+            margin-top: 80px;
+        }
+    }
+    .products {
+        gap: 5px;
+        grid-template-columns: repeat(1, 1fr);
+        @include min-width-sm {
+            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include min-width-md{
+            gap: 40px
+        }
+        @include min-width-lg {
+            gap: 60px;
+        }
+        @include min-width-xl {
+            gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .flip-card {
+            margin-block: 20px;
+            perspective: 1000px;
+            @include min-width-sm {
+                margin-block: 0px;
+            }
+            .flip-card-inner {
+                min-height: 460px;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+                box-shadow: 0 4px 8px 0 $black-Opacity2;
+                .flip-card-front{
+                    .image-container {
+                        .info-icon{
+                            cursor: pointer;
+                            color: $black-Opacity5;
+                        }
+                        img {
+                            max-width: 200px;
+                            height: 280px;
+                            @include min-width-sm {
+                                max-width: 200px;
+                                height: 280px;
+                            }
+                        }
+                    }
+                    .product-content {
+                        p {
+                            font-size: 15px;
+                            @include min-width-sm {
+                                font-size: 14px;
+                            }
+                            @include min-width-lg {
+                                font-size: 15px;
+                            }
+                        }
+                        .badge {
+                            font-size: 10px;
+                            padding: 5px;
+                            .rate {
+                                font-size: 12px;
+                            }
+                        }
+                        .count {
+                            font-size: 10px;
+                            color: $black-Opacity8;
+                        }
+                    }
+                }
+                .flip-card-front, .flip-card-back {
+                    min-height: 460px;
+                    -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+                }
+                .flip-card-back {
+                    font-size: 12px;
+                    transform: rotateY(180deg);
+                    .cancel-icon{
+                        color: $black-Opacity5;
+                    }
+                }
+            }
+            .flipcard {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+    footer {
+        p {
+            font-size: 14px;
+        }
+    }
+
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: $beluga;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $argent;
+    border-radius: 5px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $stone-cold;
+}
